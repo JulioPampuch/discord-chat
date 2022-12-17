@@ -6,6 +6,7 @@ const Box = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('test')
+    window.location.href = "/chat"
   }
 
   return (

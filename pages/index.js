@@ -14,13 +14,17 @@ function HomePage() {
     setUsername(event.target.value)
   }
 
+  const onSubmit = () => {
+    console.log('teste')
+  }
+
   return (
     <>
       <GlobalStyles />
       <Box>
         <Title tag="h1">Seja bem-vindo!</Title>
         <Title tag="h2">Discord - Chat</Title>
-        <Input username={username} onChange={onChange} />
+        <Input username={username} onChange={onChange}/>
         <Button />
         <ImageArea username={username}/>
       </Box>
