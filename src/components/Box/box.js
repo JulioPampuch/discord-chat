@@ -3,15 +3,9 @@ import appConfig from "../../../config.json"
 
 const Box = (props) => {
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('test')
-    window.location.href = "/chat"
-  }
-
   return (
     <StyledBackground>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={props.handleSubmit}>
         {props.children}
       </StyledForm>
     </StyledBackground>

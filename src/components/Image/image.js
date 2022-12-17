@@ -4,9 +4,19 @@ import appConfig from "../../../config.json"
 const ImageArea = (props) => {
 
   const CreateImage = () => {
-    return (
-      <img src={`https://github.com/${props.username}.png`} />
-    )
+
+    const imgLink = `https://github.com/${props.username}.png`
+
+    if(props.username.length > 2) {
+      return (
+        <img src={imgLink} />
+      )
+    } else {
+      return (
+        <></>
+      )
+    }
+
   }
 
   return (

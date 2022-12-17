@@ -3,10 +3,6 @@ import appConfig from "../../../config.json"
 
 const Input = (props) => {
 
-  const handleChange = (event) => {
-
-  }
-
   return (
     <>
       <InputStyled>
