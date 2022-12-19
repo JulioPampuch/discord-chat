@@ -9,10 +9,11 @@ const GlobalStyles = () => {
           padding: 0;
           box-sizing: border-box;
           list-style: none;
-          background: ${appConfig.theme.colors.neutrals['900']};
         }
         body {
           font-family: 'Roboto', arial;
+          background: ${appConfig.theme.colors.neutrals['900']};
+
         }
         /* App fit Height */ 
         html, body, #__next {

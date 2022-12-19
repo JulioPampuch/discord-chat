@@ -2,10 +2,10 @@ import styled from "styled-components"
 import appConfig from "../../../config.json"
 import ChatHeader from "../ChatHeader/chatHeader"
 
-const ChatBox = () => {
+const ChatBox = (props) => {
   return (
     <StyledBackground>
-      <ChatHeader />
+      {props.children}
     </StyledBackground>
   )
 
@@ -14,9 +14,6 @@ const ChatBox = () => {
 const StyledBackground = styled.section`
   background-color: ${appConfig.theme.colors.neutrals['600']};
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   margin: 32px 99px;
 `
