@@ -1,3 +1,6 @@
+import appConfig from "/config.json"
+
+
 const GlobalStyles = () => {
   return (
     <style global jsx>{`
@@ -6,6 +9,7 @@ const GlobalStyles = () => {
           padding: 0;
           box-sizing: border-box;
           list-style: none;
+          background: ${appConfig.theme.colors.neutrals['900']};
         }
         body {
           font-family: 'Roboto', arial;

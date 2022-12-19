@@ -1,5 +1,13 @@
-export default function ChatPage () {
+import styled from "styled-components";
+import ChatBox from "../src/components/ChatBox/chatBox";
+
+export default function ChatPage() {
   return (
-    <div>Chat page </div>
+    <ChatBox>
+
+    </ChatBox>
   )
+
+  
 }
+
