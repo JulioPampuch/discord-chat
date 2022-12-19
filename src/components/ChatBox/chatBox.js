@@ -14,7 +14,6 @@ const ChatBox = (props) => {
 const StyledBackground = styled.section`
   background-color: ${appConfig.theme.colors.neutrals['600']};
 
-
   margin: 32px 99px;
 `
 

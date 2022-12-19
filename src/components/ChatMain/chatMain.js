@@ -4,18 +4,21 @@ import Container from "../Container/container"
 
 const ChatMain = (props) => {
   return (
-    <Container>
-      <StyledChatMain>
+    <StyledChatMain>
         {props.children}
-      </StyledChatMain>
-    </Container>
+    </StyledChatMain>
   )
 }
 
-const StyledChatMain = styled.div`
-    background-color: ${appConfig.theme.colors.neutrals['400']};
+const StyledChatMain = styled.section`
+    display: flex;
+    flex-direction: column;
 
-    margin: 23px 0;
+    background-color: ${appConfig.theme.colors.neutrals['400']};
+    height: 80%;
+
+    margin: 23px 32px;
+    padding: 17px 21px;
 `
 
 

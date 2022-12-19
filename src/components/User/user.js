@@ -18,7 +18,7 @@ const StyledUserImage = styled.div`
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 14px 18px;
+    padding: 8px 18px;
 
     img {
      width: 25px;
@@ -36,7 +36,7 @@ const StyledUserImage = styled.div`
 
     .message {
       width: 100%;
-      padding: 1px 0 5px 0;
+      padding: 1px 0;
     }
 `
 
