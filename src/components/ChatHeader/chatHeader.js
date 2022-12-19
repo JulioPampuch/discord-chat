@@ -27,8 +27,16 @@ const StyledHeader = styled.div`
 
     button {
       background-color: ${appConfig.theme.colors.neutrals['600']};
-      border: none;
       font-size: 16px;
+      cursor: pointer;
+      
+      padding: 10px;
+      border: none;
+    }
+
+    button:hover {
+      transform: scale(1.15);
+      transition: 0.1s;
     }
 `
 export default ChatHeader
