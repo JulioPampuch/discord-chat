@@ -7,7 +7,7 @@ const MessageArea = (props) => {
     <Container>
       <MessageAreaStyled>
         <input type="text" placeholder="Insira sua menssagem aqui" onChange={props.changeMessage} value={props.messageValue} onKeyDown={props.keyPressed} />
-        <button type="submit">Ok</button>
+        <button onClick={props.buttonPressed}>Send</button>
       </MessageAreaStyled>
     </Container>
   )
@@ -31,13 +31,14 @@ const MessageAreaStyled = styled.div`
   }
 
   button {
-    width: 3%;
+    width: 4%;
     background-color: ${appConfig.theme.colors.primary['050']};
     color: ${appConfig.theme.colors.neutrals['900']};
     
     cursor: pointer;
 
-    padding: 15px;
+    padding: 12px 0;
+    border-radius: 10px;
     border: none;
   }
 

@@ -9,7 +9,7 @@ import User from "../src/components/User/user";
 
 export default function ChatPage() {
 
-  const [message, setMessage] = useState()
+  const [message, setMessage] = useState('')
   const [messageList, setMessageList] = useState(['Olá!'])
 
   const changeMessage = (event) => {
@@ -31,21 +31,25 @@ export default function ChatPage() {
     }
   }
 
+  const buttonPressed = (event) => {
+    event.preventDefault()
+    handleNewMessage(message)
+    setMessage('')
+  }
+
   return (
     <>
       <StyledBackground>
         <ChatBox>
           <ChatHeader text1="Chat" text2="Logout" />
           <ChatMain>
-            {messageList.map((msg) => {
+            {messageList.map((message) => {
               return (
-                <>
-                  <User message={msg} />
-                </>
+                <User key={message} message={message} />
               )
             })}
           </ChatMain>
-          <MessageArea changeMessage={changeMessage} messageValue={message} keyPressed={keyPressed} />
+          <MessageArea changeMessage={changeMessage} messageValue={message} keyPressed={keyPressed} buttonPressed={buttonPressed} />
         </ChatBox>
       </StyledBackground>
     </>
