@@ -19,6 +19,10 @@ const StyledChatMain = styled.section`
 
     margin: 23px 32px;
     padding: 17px 21px;
+
+    @media (max-width: 1750px){
+      height: 75%;
+  }
 `
 
 
