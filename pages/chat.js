@@ -9,15 +9,25 @@ import User from "../src/components/User/user";
 
 export default function ChatPage() {
 
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState()
+  const [messageList, setMessageList] = useState(['Olá!'])
 
   const changeMessage = (event) => {
     setMessage(event.target.value)
   }
 
+  const handleNewMessage = (newMessage) => {
+    setMessageList([
+      ...messageList,
+      newMessage,
+    ])
+  }
+
   const keyPressed = (event) => {
-    if(event.key === 'Enter') {
-      console.log(event.target.value)
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      handleNewMessage(message)
+      setMessage('')
     }
   }
 
@@ -25,8 +35,13 @@ export default function ChatPage() {
     <ChatBox>
       <ChatHeader text1="Chat" text2="Logout" />
       <ChatMain>
-          <User />
-          <User />
+          {messageList.map((msg) => {
+            return (
+              <>
+              <User message={msg} />
+              </>
+              )
+            })}
       </ChatMain>
       <MessageArea changeMessage={changeMessage} messageValue={message} keyPressed={keyPressed} />
     </ChatBox>

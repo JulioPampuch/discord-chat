@@ -2,13 +2,13 @@ import styled from "styled-components"
 import appConfig from "../../../config.json"
 import Container from "../Container/container"
 
-const User = () => {
+const User = (props) => {
   return (
     <StyledUserImage>
       <img src="https://github.com/JulioPampuch.png" />
       <p className="username">Julio Pampuch</p>
       <p className="date">19/12/2022</p>
-      <p className="message">Ola!</p>
+      <p className="message">{props.message}</p>
     </StyledUserImage>
   )
 }
