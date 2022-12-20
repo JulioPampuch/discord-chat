@@ -1,14 +1,22 @@
+import { useRouter } from "next/router"
 import styled from "styled-components"
 import appConfig from "../../../config.json"
 import Container from "../Container/container"
 
-
 const ChatHeader = (props) => {
+
+const routing = useRouter()
+
+const goToHomePage = (event) => {
+  event.preventDefault()
+  routing.push('/')
+}
+
   return (
     <StyledHeader>
       <Container>
-        <button>{props.text1}</button>
-        <button>{props.text2}</button>
+        <button className="chat">Chat</button>
+        <button onClick={goToHomePage} className="logout">Logout</button>
       </Container>
     </StyledHeader>
   )
@@ -32,6 +40,14 @@ const StyledHeader = styled.div`
       
       padding: 10px;
       border: none;
+    }
+
+    .chat {
+      color: ${appConfig.theme.colors.neutrals['100']};
+    }
+
+    .logout {
+      color: ${appConfig.theme.colors.neutrals['200']};
     }
 
     button:hover {
