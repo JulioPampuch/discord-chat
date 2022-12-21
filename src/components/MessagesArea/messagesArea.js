@@ -3,6 +3,9 @@ import appConfig from "../../../config.json"
 import Container from "../Container/container"
 
 const ChatMain = (props) => {
+  {if(!props.children) {
+    console.log('test reload')
+  }}
   return (
     <StyledChatMain>
         {props.children}

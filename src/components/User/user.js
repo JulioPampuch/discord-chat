@@ -5,11 +5,10 @@ import Container from "../Container/container"
 const User = (props) => {
   return (
     <StyledUserImage>
-        <img src="https://github.com/JulioPampuch.png" />
+        <img src={`https://github.com/${props.user}.png`} />
         <p className="username">{props.user}</p>
         <p className="date">19/12/2022</p>
         <p className="message">{props.message}</p>
-        {console.log(props.user)}
       {/* <button>x</button> */}
     </StyledUserImage>
   )

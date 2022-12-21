@@ -1,12 +1,14 @@
 import styled from "styled-components"
 import appConfig from "../../../config.json"
+import Button from "./button"
 
 const Input = (props) => {
 
   return (
     <>
       <InputStyled>
-        <input type='text' value={props.username} onChange={props.onChange} />
+          <input type='text' value={props.username} onChange={props.onChange} />
+          <Button />
       </InputStyled>
     </>
   )
