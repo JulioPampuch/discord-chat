@@ -3,9 +3,6 @@ import appConfig from "../../../config.json"
 import Container from "../Container/container"
 
 const ChatMain = (props) => {
-  {if(!props.children) {
-    console.log('test reload')
-  }}
   return (
     <StyledChatMain>
         {props.children}
@@ -14,11 +11,15 @@ const ChatMain = (props) => {
 }
 
 const StyledChatMain = styled.section`
+    height: 800px;
+    
     display: flex;
     flex-direction: column;
+    
+    overflow: scroll;
+    overflow-x: hidden;
 
     background-color: ${appConfig.theme.colors.neutrals['400']};
-    height: 80%;
 
     margin: 23px 32px;
     padding: 17px 21px;

@@ -11,6 +11,10 @@ const MessageArea = (props) => {
     setOpenState(!openState)
   }
 
+  const getSticker = (event) => {
+    setOpenState(false)
+  }
+
   return (
     <Container>
       <MessageAreaStyled>
@@ -20,9 +24,9 @@ const MessageArea = (props) => {
           <div className="stickersButton">
             <p>Stickers</p>
             <div className="stickers">
-              {appConfig.stickers.map((sticker, index) => {
+              {appConfig.stickers.map((sticker) => {
                 return (
-                  <img key={index} src={sticker} />
+                  <img key={sticker} onClick={props.getSticker}  src={sticker} />
                 )
               })}
             </div>
@@ -91,16 +95,26 @@ const MessageAreaStyled = styled.div`
     padding: 17.5px 15px;
   }
 
-  img {
-    width: 90px;
-  }
+
  }
 
  .stickers {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 15px;
+
+  img {
+    width: 140px;
+    padding: 15px;
+
+    border-radius: 10px;
+  }
+
+  img:hover {
+    background-color: ${appConfig.theme.colors.neutrals['600']};
+  }
+
  }
 
 `

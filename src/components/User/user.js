@@ -5,11 +5,18 @@ import Container from "../Container/container"
 const User = (props) => {
   return (
     <StyledUserImage>
-        <img src={`https://github.com/${props.user}.png`} />
-        <p className="username">{props.user}</p>
-        <p className="date">19/12/2022</p>
-        <p className="message">{props.message}</p>
-      {/* <button>x</button> */}
+      <img src={`https://github.com/${props.user}.png`} />
+      <p className="username">{props.user}</p>
+      <p className="date">19/12/2022</p>
+      {props.messageText.startsWith(':sticker:')
+        ? (
+          <div className="sticker">
+            <img src={props.messageText.replace(':sticker:', '')} />
+          </div>
+        )
+        : (
+          <p className="message">{props.messageText}</p>
+        )}
     </StyledUserImage>
   )
 }
@@ -27,12 +34,12 @@ const StyledUserImage = styled.div`
     padding: 8px 18px;
 
     img {
-     width: 25px;
+     width: 35px;
      border-radius: 50%;
     }
 
-    .uesername {
-      font-size: 16px;
+    .username {
+      font-size: 18px;
     }
 
     .date {
@@ -43,6 +50,16 @@ const StyledUserImage = styled.div`
     .message {
       width: 100%;
       padding: 1px 0;
+    }
+
+    .sticker {
+      width: 100%;
+
+      img {
+        width: 10%;
+        border-radius: 0;
+      }
+
     }
 
 `

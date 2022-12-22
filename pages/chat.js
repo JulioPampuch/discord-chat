@@ -33,6 +33,24 @@ export default function ChatPage() {
       })
   }, [])
 
+  const handleNewMessage = (NewMessage) => {
+    const message = {
+      user: logUser,
+      text: NewMessage
+    }
+
+    supabaseClient
+    .from('messages')
+    .insert([
+      message
+    ]).select('*').
+    then(({ data }) => {
+      setMessageList([
+        ...messageList,
+        message
+      ])
+    })
+  }
 
   const changeMessage = (event) => {
     setMessage({
@@ -66,12 +84,9 @@ export default function ChatPage() {
     }
   }
 
-  const buttonPressed = (event) => {
-    event.preventDefault()
-    submitToSupabase()
-    setMessage({
-      text: ''
-    })
+  const getSticker = (sticker) => {
+   handleNewMessage(`:sticker: ${sticker.target.src}`)
+   
   }
 
   return (
@@ -83,12 +98,12 @@ export default function ChatPage() {
             {messageList.map((message) => {
               return (
                 message ?
-                  <User key={message.id} user={message.user} message={message.text} />
+                  <User key={message.id} user={message.user} messageText={message.text} />
                   : <p>Loading...</p>
               )
             })}
           </ChatMain>
-          <MessageArea changeMessage={changeMessage} messageValue={message.text} keyPressed={keyPressed} buttonPressed={buttonPressed} />
+          <MessageArea changeMessage={changeMessage} messageValue={message.text} keyPressed={keyPressed} getSticker={getSticker} />
         </ChatBox>
       </StyledBackground>
     </>
