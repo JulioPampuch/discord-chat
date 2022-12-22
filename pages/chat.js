@@ -6,6 +6,7 @@ import ChatMain from "../src/components/MessagesArea/messagesArea";
 import MessageArea from "../src/components/MessageInput/MessageInput";
 import User from "../src/components/User/user";
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
+import { useRouter } from "next/router";
 
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5c2d3aG14anl0c2J6dW1wdGFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzE1NDM2MjYsImV4cCI6MTk4NzExOTYyNn0.PBvGDQrzlErmc7FneDHxR_1-o9IWO8IW6VTi7iCq7o4"
 const SUPABASE_URL = "https://dysgwhmxjytsbzumptao.supabase.co"
@@ -13,9 +14,11 @@ const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 export default function ChatPage() {
 
+  const routing = useRouter()
+  const logUser = routing.query.username
   const [message, setMessage] = useState({
     id: '',
-    user: 'juliopampuch',
+    user: logUser,
     text: ''
   })
 
@@ -33,7 +36,7 @@ export default function ChatPage() {
 
   const changeMessage = (event) => {
     setMessage({
-      user: 'julio',
+      user: logUser,
       text: event.target.value
     })
   }
@@ -57,6 +60,9 @@ export default function ChatPage() {
     if (event.key === 'Enter') {
       event.preventDefault()
       submitToSupabase()
+      setMessage({
+        text: ''
+      })
     }
   }
 
@@ -77,8 +83,8 @@ export default function ChatPage() {
             {messageList.map((message) => {
               return (
                 message ?
-                <User key={message.id} user={message.user} message={message.text} />
-                : <p>Loading...</p>
+                  <User key={message.id} user={message.user} message={message.text} />
+                  : <p>Loading...</p>
               )
             })}
           </ChatMain>

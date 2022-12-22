@@ -1,26 +1,48 @@
+import { useState } from "react"
 import styled from "styled-components"
 import appConfig from "../../../config.json"
 import Container from "../Container/container"
 
 const MessageArea = (props) => {
+
+  const [openState, setOpenState] = useState(false)
+
+  const handleOpenState = () => {
+    setOpenState(!openState)
+  }
+
   return (
     <Container>
       <MessageAreaStyled>
         <input type="text" placeholder="Insira sua menssagem aqui" onChange={props.changeMessage} value={props.messageValue} onKeyDown={props.keyPressed} />
-        <button onClick={props.buttonPressed}>Send</button>
+        <button onClick={handleOpenState}>😋</button>
+        {openState && (
+          <div className="stickersButton">
+            <p>Stickers</p>
+            <div className="stickers">
+              {appConfig.stickers.map((sticker, index) => {
+                return (
+                  <img key={index} src={sticker} />
+                )
+              })}
+            </div>
+          </div>
+        )}
       </MessageAreaStyled>
     </Container>
   )
 }
 
 const MessageAreaStyled = styled.div`
+  width: 100%;
+
+  position: relative;
 
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 5px;
   align-items: center;
-  width: 100%;
 
   input {
     width: 95%;
@@ -46,7 +68,40 @@ const MessageAreaStyled = styled.div`
     background-color: ${appConfig.theme.colors.primary['200']};
   }
 
+ //Stickers button
 
+ .stickersButton {
+
+  overflow: scroll;
+  overflow-x: hidden;
+
+  width: 390px;
+  height: 430px;
+
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  background-color:  ${appConfig.theme.colors.neutrals['700']};
+
+  border-radius: 7.5px;
+
+  p {
+    font-size: 20px;
+    padding: 17.5px 15px;
+  }
+
+  img {
+    width: 90px;
+  }
+ }
+
+ .stickers {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+ }
 
 `
 
