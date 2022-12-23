@@ -25,7 +25,6 @@ const StyledUserImage = styled.div`
       background-color: ${appConfig.theme.colors.neutrals['500']};
     }
 
-
     display: flex;
     align-items: center;
     flex-wrap: wrap;      

@@ -12,6 +12,15 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const SUPABASE_URL = "https://dysgwhmxjytsbzumptao.supabase.co"
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
+function getMessageInRealTime(addMessage) {
+  return supabaseClient
+    .from('messages')
+    .on('INSERT', (data) => {
+      addMessage(data.new)
+    })
+    .subscribe();
+}
+
 export default function ChatPage() {
 
   const routing = useRouter()
@@ -31,25 +40,29 @@ export default function ChatPage() {
       .then(({ data }) => {
         setMessageList(data)
       })
+    // getMessageInRealTime(() => {
+      
+    // })
   }, [])
 
   const handleNewSticker = (sticker) => {
     const message = {
+      id:messageList.length + 1,
       user: logUser,
       text: sticker
     }
 
     supabaseClient
-    .from('messages')
-    .insert([
-      message
-    ]).select('*').
-    then(({ data }) => {
-      setMessageList([
-        ...messageList,
+      .from('messages')
+      .insert([
         message
-      ])
-    })
+      ]).select('*').
+      then(({ data }) => {
+        setMessageList([
+          ...messageList,
+          message
+        ])
+      })
   }
 
   const changeMessage = (event) => {
@@ -59,7 +72,12 @@ export default function ChatPage() {
     })
   }
 
-  const submitToSupabase = () => {
+  const handleNewMessage = (newMessage) => {
+    const message = {
+      user: logUser,
+      text: newMessage
+    }
+
     supabaseClient
       .from('messages')
       .insert([
@@ -73,11 +91,10 @@ export default function ChatPage() {
       })
   }
 
-
   const keyPressed = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault()
-      submitToSupabase()
+      handleNewMessage(message.text)
       setMessage({
         text: ''
       })
@@ -85,7 +102,7 @@ export default function ChatPage() {
   }
 
   const getSticker = (sticker) => {
-   handleNewSticker(`:sticker: ${sticker.target.src}`)
+    handleNewSticker(`:sticker: ${sticker.target.src}`)
   }
 
   return (
@@ -97,7 +114,7 @@ export default function ChatPage() {
             {messageList.map((message) => {
               return (
                 message ?
-                  <User key={message.id} user={message.user} messageText={message.text} />
+                  <User key={message.id} message={message} user={message.user} messageText={message.text} />
                   : <p>Loading...</p>
               )
             })}
