@@ -33,10 +33,10 @@ export default function ChatPage() {
       })
   }, [])
 
-  const handleNewMessage = (NewMessage) => {
+  const handleNewSticker = (sticker) => {
     const message = {
       user: logUser,
-      text: NewMessage
+      text: sticker
     }
 
     supabaseClient
@@ -85,8 +85,7 @@ export default function ChatPage() {
   }
 
   const getSticker = (sticker) => {
-   handleNewMessage(`:sticker: ${sticker.target.src}`)
-   
+   handleNewSticker(`:sticker: ${sticker.target.src}`)
   }
 
   return (

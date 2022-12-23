@@ -11,10 +11,6 @@ const MessageArea = (props) => {
     setOpenState(!openState)
   }
 
-  const getSticker = (event) => {
-    setOpenState(false)
-  }
-
   return (
     <Container>
       <MessageAreaStyled>
@@ -26,7 +22,7 @@ const MessageArea = (props) => {
             <div className="stickers">
               {appConfig.stickers.map((sticker) => {
                 return (
-                  <img key={sticker} onClick={props.getSticker}  src={sticker} />
+                  <img key={sticker} onClick={props.getSticker} src={sticker} />
                 )
               })}
             </div>
