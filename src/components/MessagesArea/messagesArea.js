@@ -11,7 +11,7 @@ const ChatMain = (props) => {
 }
 
 const StyledChatMain = styled.section`
-    height: 800px;
+    height: 700px;
     
     display: flex;
     flex-direction: column;

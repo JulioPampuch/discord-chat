@@ -13,8 +13,12 @@ const ChatBox = (props) => {
 
 const StyledBackground = styled.section`
   background-color: ${appConfig.theme.colors.neutrals['600']};
-  width: 100%;
-  height: 90%;
+  width: 90%;
+  height: 92.5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   margin: 32px 99px;
 `
