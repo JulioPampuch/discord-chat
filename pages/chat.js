@@ -40,14 +40,17 @@ export default function ChatPage() {
       .then(({ data }) => {
         setMessageList(data)
       })
-    // getMessageInRealTime(() => {
-      
+    // getMessageInRealTime((newMessage) => {
+    //   setMessageList([
+    //     ...messageList,
+    //     data[0]
+    //   ])
     // })
   }, [])
 
   const handleNewSticker = (sticker) => {
     const message = {
-      id:messageList.length + 1,
+      id: messageList.length + 1,
       user: logUser,
       text: sticker
     }
@@ -84,6 +87,7 @@ export default function ChatPage() {
         message
       ]).select('*').
       then(({ data }) => {
+        console.log(data)
         setMessageList([
           ...messageList,
           data[0]
@@ -105,6 +109,9 @@ export default function ChatPage() {
     handleNewSticker(`:sticker: ${sticker.target.src}`)
   }
 
+  const newDate = new Date()
+  const currentDate = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear()
+
   return (
     <>
       <StyledBackground>
@@ -114,7 +121,7 @@ export default function ChatPage() {
             {messageList.map((message) => {
               return (
                 message ?
-                  <User key={message.id} message={message} user={message.user} messageText={message.text} />
+                  <User key={message.id} message={message} user={message.user} date={currentDate} messageText={message.text} />
                   : <p>Loading...</p>
               )
             })}

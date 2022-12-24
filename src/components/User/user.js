@@ -1,12 +1,15 @@
 import styled from "styled-components"
 import appConfig from "../../../config.json"
 
+
+
 const User = (props) => {
+
   return (
     <StyledUserImage>
       <img src={`https://github.com/${props.user}.png`} />
       <p className="username">{props.user}</p>
-      <p className="date">19/12/2022</p>
+      <p className="date">{props.date}</p>
       {props.messageText.startsWith(':sticker:')
         ? (
           <div className="sticker">
@@ -19,6 +22,8 @@ const User = (props) => {
     </StyledUserImage>
   )
 }
+
+
 
 const StyledUserImage = styled.div`
     :hover {
