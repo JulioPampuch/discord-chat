@@ -12,26 +12,31 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const SUPABASE_URL = "https://dysgwhmxjytsbzumptao.supabase.co"
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-function getMessageInRealTime(addMessage) {
-  return supabaseClient
-    .from('messages')
-    .on('INSERT', (data) => {
-      addMessage(data.new)
-    })
-    .subscribe();
-}
+// function getMessageInRealTime(addMessage) {
+//   return supabaseClient
+//     .from('messages')
+//     .on('INSERT', (data) => {
+//       addMessage(data.new)
+//     })
+//     .subscribe();
+// }
 
 export default function ChatPage() {
 
   const routing = useRouter()
   const logUser = routing.query.username
+
   const [message, setMessage] = useState({
     id: '',
     user: logUser,
-    text: ''
+    text: '',
+    date: ''
   })
 
   const [messageList, setMessageList] = useState([])
+
+  const newDate = new Date()
+  const currentDate = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear()
 
   useEffect(() => {
     supabaseClient
@@ -39,6 +44,7 @@ export default function ChatPage() {
       .select('*')
       .then(({ data }) => {
         setMessageList(data)
+        console.log(data)
       })
     // getMessageInRealTime((newMessage) => {
     //   setMessageList([
@@ -52,7 +58,8 @@ export default function ChatPage() {
     const message = {
       id: messageList.length + 1,
       user: logUser,
-      text: sticker
+      text: sticker,
+      date: currentDate
     }
 
     supabaseClient
@@ -78,7 +85,8 @@ export default function ChatPage() {
   const handleNewMessage = (newMessage) => {
     const message = {
       user: logUser,
-      text: newMessage
+      text: newMessage,
+      date: currentDate
     }
 
     supabaseClient
@@ -109,8 +117,7 @@ export default function ChatPage() {
     handleNewSticker(`:sticker: ${sticker.target.src}`)
   }
 
-  const newDate = new Date()
-  const currentDate = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear()
+
 
   return (
     <>
@@ -121,7 +128,7 @@ export default function ChatPage() {
             {messageList.map((message) => {
               return (
                 message ?
-                  <User key={message.id} message={message} user={message.user} date={currentDate} messageText={message.text} />
+                  <User key={message.id} message={message} user={message.user} date={message.date} messageText={message.text} />
                   : <p>Loading...</p>
               )
             })}
