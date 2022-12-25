@@ -59,7 +59,7 @@ const StyledUserImage = styled.div`
       width: 100%;
 
       img {
-        width: 10%;
+        width: 7%;
         border-radius: 0;
       }
 
