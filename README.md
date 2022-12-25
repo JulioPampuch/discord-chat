@@ -4,6 +4,8 @@ Projeto desenvolvido no evento Imersão React, que simula um chat inspirado no c
 
 O projeto consiste em um chat real, que armeza os dados no back-end Supabase.
 
+Participe e deixe sua menssagem: https://discord-chat-ashen.vercel.app/ :D
+
 <hr/>
 
 <h2>Página de login</h2>
