@@ -11,6 +11,11 @@ const MessageArea = (props) => {
     setOpenState(!openState)
   }
 
+  const getSticker = (sticker) => {
+    props.sendSticker(sticker)
+    handleOpenState()
+  }
+
   return (
     <Container>
       <MessageAreaStyled>
@@ -22,7 +27,7 @@ const MessageArea = (props) => {
             <div className="stickers">
               {appConfig.stickers.map((sticker) => {
                 return (
-                  <img key={sticker} onClick={props.getSticker} src={sticker} />
+                  <img key={sticker} onClick={getSticker} src={sticker} />
                 )
               })}
             </div>
@@ -90,8 +95,6 @@ const MessageAreaStyled = styled.div`
     font-size: 20px;
     padding: 17.5px 15px;
   }
-
-
  }
 
  .stickers {

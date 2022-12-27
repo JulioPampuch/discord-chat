@@ -17,7 +17,6 @@ function HomePage() {
   const handleSubmit = (event) => {
     event.preventDefault()
     routing.push(`/chat?username=${username}`)
-    console.log(username)
     // window.location.href = "/chat"
   }
 

@@ -52,14 +52,16 @@ const StyledUserImage = styled.div`
 
     .message {
       width: 100%;
-      padding: 1px 0;
+      font-size: 16px;
+      padding: 1px 5px;
     }
 
     .sticker {
       width: 100%;
+      padding: 1px 5px;
 
       img {
-        width: 7%;
+        width: 8%;
         border-radius: 0;
       }
 

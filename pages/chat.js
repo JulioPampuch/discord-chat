@@ -8,8 +8,8 @@ import User from "../src/components/User/user";
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import { useRouter } from "next/router";
 
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5c2d3aG14anl0c2J6dW1wdGFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzE1NDM2MjYsImV4cCI6MTk4NzExOTYyNn0.PBvGDQrzlErmc7FneDHxR_1-o9IWO8IW6VTi7iCq7o4"
-const SUPABASE_URL = "https://dysgwhmxjytsbzumptao.supabase.co"
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRwd2pnZnVlaGV4aG5oZnBma2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzIwOTk2MTEsImV4cCI6MTk4NzY3NTYxMX0.DuuiqKsJ1OS4W59RZR5YdswP87uSG5pHgMcSbecPAk0"
+const SUPABASE_URL = "https://tpwjgfuehexhnhfpfkaa.supabase.co"
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 // function getMessageInRealTime(addMessage) {
@@ -113,7 +113,7 @@ export default function ChatPage() {
     }
   }
 
-  const getSticker = (sticker) => {
+  const sendSticker = (sticker) => {
     handleNewSticker(`:sticker: ${sticker.target.src}`)
   }
 
@@ -133,7 +133,7 @@ export default function ChatPage() {
               )
             })}
           </ChatMain>
-          <MessageArea changeMessage={changeMessage} messageValue={message.text} keyPressed={keyPressed} getSticker={getSticker} />
+          <MessageArea changeMessage={changeMessage} messageValue={message.text} keyPressed={keyPressed} sendSticker={sendSticker} />
         </ChatBox>
       </StyledBackground>
     </>

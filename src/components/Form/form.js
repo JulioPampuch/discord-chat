@@ -7,7 +7,7 @@ const Input = (props) => {
   return (
     <>
       <InputStyled>
-          <input type='text' value={props.username} onChange={props.onChange} />
+          <input type='text' value={props.username} onChange={props.onChange} placeholder='Digite seu usúario do Github' />
           <Button />
       </InputStyled>
     </>
