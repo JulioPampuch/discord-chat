@@ -7,7 +7,7 @@ const User = (props) => {
 
   return (
     <StyledUserImage>
-      <img src={`https://github.com/${props.user}.png`} />
+      <img src={`https://github.com/${props.user}.png`} alt='user' />
       <p className="username">{props.user}</p>
       <p className="date">{props.date}</p>
       {props.messageText.startsWith(':sticker:')

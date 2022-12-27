@@ -9,7 +9,7 @@ const ImageArea = (props) => {
 
     if(props.username.length > 2) {
       return (
-        <img src={imgLink} />
+        <img src={imgLink} alt='user' />
       )
     } else {
       return (
