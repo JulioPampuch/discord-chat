@@ -56,7 +56,6 @@ export default function ChatPage() {
 
   const handleNewSticker = (sticker) => {
     const message = {
-      id: messageList.length + 1,
       user: logUser,
       text: sticker,
       date: currentDate
@@ -116,8 +115,6 @@ export default function ChatPage() {
   const sendSticker = (sticker) => {
     handleNewSticker(`:sticker: ${sticker.target.src}`)
   }
-
-
 
   return (
     <>
