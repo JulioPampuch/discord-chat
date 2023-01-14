@@ -1,4 +1,4 @@
-<h1 align="center'>Discord chat</h1>
+<h1 align="center">Discord chat</h1>
 
 Projeto desenvolvido no evento Imersão React, que simula um chat inspirado no chat do Discord usando Nextjs.
 
