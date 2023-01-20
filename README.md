@@ -1,6 +1,7 @@
-<h1>Discord chat</h1>
+<h1 align="center">Discord chat</h1>
 
-Projeto desenvolvido no evento Imersão React, que simula um chat inspirado no chat do Discord.
+Projeto desenvolvido no evento Imersão React, que simula um chat inspirado no chat do Discord usando Nextjs.
+
 
 O projeto consiste em um chat real, que armeza os dados no back-end Supabase.
 
