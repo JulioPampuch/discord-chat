@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import appConfig from "../../../config.json"
-import ChatHeader from "../ChatHeader/chatHeader"
 
 const ChatBox = (props) => {
   return (

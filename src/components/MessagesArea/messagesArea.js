@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import appConfig from "../../../config.json"
-import Container from "../Container/container"
 
 const ChatMain = (props) => {
   return (

@@ -1,6 +1,4 @@
-import styled from "styled-components"
 import appConfig from "../../../config.json"
-
 
 const Title = (props) => {
   const Tag = props.tag || 'h1'

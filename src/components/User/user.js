@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import appConfig from "../../../config.json"
 
-
-
 const User = (props) => {
 
   return (
@@ -22,8 +20,6 @@ const User = (props) => {
     </StyledUserImage>
   )
 }
-
-
 
 const StyledUserImage = styled.div`
     :hover {
