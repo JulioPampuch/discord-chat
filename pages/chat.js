@@ -38,6 +38,9 @@ export default function ChatPage() {
   const newDate = new Date()
   const currentDate = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear()
 
+  const moment = require('moment')
+  const hourFormated = moment().format('HH:mm')
+
   useEffect(() => {
     supabaseClient
       .from('messages')
@@ -68,8 +71,8 @@ export default function ChatPage() {
       ]).select('*').
       then(({ data }) => {
         setMessageList([
-          ...messageList,
-          message
+          message,
+          ...messageList
         ])
       })
   }
@@ -85,7 +88,8 @@ export default function ChatPage() {
     const message = {
       user: logUser,
       text: newMessage,
-      date: currentDate
+      date: currentDate,
+      hour: hourFormated
     }
 
     supabaseClient
@@ -125,7 +129,7 @@ export default function ChatPage() {
             {messageList.map((message) => {
               return (
                 message ?
-                  <User key={message.id} message={message} user={message.user} date={message.date} messageText={message.text} />
+                  <User key={message.id} message={message} user={message.user} date={message.date} messageText={message.text} hour={message.hour} />
                   : <p>Loading...</p>
               )
             })}
