@@ -15,9 +15,7 @@
   <li>Styled-components</li>
 </ul>
 
-Participe e deixe sua menssagem: https://discord-chat-ashen.vercel.app/ :D
-
-<hr/>
+<p>Participe e deixe sua menssagem: https://discord-chat-ashen.vercel.app/ :D</p>
 
 <h2>Página de login</h2>
 
