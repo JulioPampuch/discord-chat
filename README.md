@@ -1,13 +1,21 @@
-<h1 align="center">Discord chat</h1>
+<h1 align="center">Discord-chat</h1>
 
-Projeto desenvolvido no evento Imersão React, que simula um chat inspirado no chat do Discord usando Nextjs.
+<h2>💻 Projeto</h2>
+<h2>Projeto desenvolvido no evento "Imersão React" da Alura, utilizamos React com Nextjs para criar um chat inspirado no discord.</h2>
 
+<h2>🚀 Tecnologias</h2>
+<p>Esse projeto foi desenvolvido com as seguintes tecnologias:</p>
 
-O projeto consiste em um chat real, que armeza os dados no back-end Supabase.
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>React.js</li>
+  <li>Next.js</li>
+  <li>Styled-components</li>
+</ul>
 
-Participe e deixe sua menssagem: https://discord-chat-ashen.vercel.app/ :D
-
-<hr/>
+<p>Participe e deixe sua menssagem: https://discord-chat-ashen.vercel.app/ :D</p>
 
 <h2>Página de login</h2>
 
