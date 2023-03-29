@@ -61,7 +61,8 @@ export default function ChatPage() {
     const message = {
       user: logUser,
       text: sticker,
-      date: currentDate
+      date: currentDate,
+      hour: hourFormated
     }
 
     supabaseClient
@@ -71,8 +72,8 @@ export default function ChatPage() {
       ]).select('*').
       then(({ data }) => {
         setMessageList([
-          message,
-          ...messageList
+          ...messageList,
+          message
         ])
       })
   }
