@@ -47,7 +47,7 @@ export default function ChatPage() {
       .select('*')
       .then(({ data }) => {
         setMessageList(data)
-        console.log(data)
+        // console.log(data)
       })
     // getMessageInRealTime((newMessage) => {
     //   setMessageList([
@@ -99,7 +99,7 @@ export default function ChatPage() {
         message
       ]).select('*').
       then(({ data }) => {
-        console.log(data)
+        // console.log(data)
         setMessageList([
           ...messageList,
           data[0]
