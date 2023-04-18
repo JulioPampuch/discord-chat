@@ -36,7 +36,7 @@ export default function ChatPage() {
   const [messageList, setMessageList] = useState([])
 
   const newDate = new Date()
-  const currentDate = newDate.getDate() + "/" + (newDate.getMonth() + 1) + "/" + newDate.getFullYear()
+  const currentDate = ("0" + newDate.getDate()).slice(-2) + "/" + ("0" + (newDate.getMonth() + 1)).slice(-2) + "/" + newDate.getFullYear()
 
   const moment = require('moment')
   const hourFormated = moment().format('HH:mm')
